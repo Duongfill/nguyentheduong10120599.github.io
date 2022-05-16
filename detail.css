@@ -109,6 +109,13 @@
         padding-left: 5px;
         outline: none;
     }
+        .bannercolor{
+        width: 300px;
+        height: 280px;
+        float: right;
+        overflow: hidden; 
+        border-radius: 10px;
+    }
     #search i{
         top: 50%;
         transform: translateY(-50%);
