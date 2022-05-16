@@ -1,0 +1,909 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>TELECOM STORE</title>
+        <link rel="stylesheet" href="doan2.css">
+        <link rel="icon" href="/favicon/favicon.ico">
+        <script src="https://kit.fontawesome.com/8d6ade88ff.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./fontawesome-free-6.0.0-web/css/all.min.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".addcart").click(function(){
+                    var cartAmount = Number(sessionStorage.getItem("cartAmount"));
+                    if(cartAmount != null)
+                        cartAmount += 1;
+                    else
+                        cartAmount = 1;
+                    $("#cart-amount").text("Giỏ hàng ("+cartAmount+")");
+                    sessionStorage.setItem("cartAmount",cartAmount);
+    
+                    var pImg = $(this).parent().parent().find(".anh").attr("src");
+                    var pName = $(this).parent().parent().find(".tensp").text();
+                    var pPrice = $(this).parent().parent().find(".gia").text();
+                    var product = {
+                        "img": pImg,
+                        "name": pName,
+                        "price": pPrice
+                    }
+                    var cart = sessionStorage.getItem("cart");
+                    var cartProducts = "";
+                    if(cart!=null){
+                        cartProducts = cart +","+ JSON.stringify(product);
+                    }else
+                        cartProducts = JSON.stringify(product);
+                    sessionStorage.setItem("cart", cartProducts);
+                });
+                $('.slider-product-one-content-items').slick({
+                    infinite: true,
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                    arrows:false,
+                    responsive: [
+                    {
+                    breakpoint: 1199,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 2
+                    }
+                    },
+                    {
+                    breakpoint: 710,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 2
+                    }
+                    }
+                    ]
+                });
+                $('.rooter').slick({
+                    infinite: true,
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                    arrows:false,
+                    responsive: [
+                    {
+                    breakpoint: 1199,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 2
+                    }
+                    },
+                    {
+                    breakpoint: 709,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 2
+                    }
+                    }
+                    ]
+                });
+                $('.slides').slick({
+                    infinite: true,
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    arrows:false,
+                    responsive: [
+                    {
+                    breakpoint: 1199,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                    }
+                    },
+                    {
+                    breakpoint: 709,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                    }
+                    }
+                    ]
+                });
+                    
+            });
+        </script>
+    </head>
+    <body>
+        <div id="doan2">
+            <div id="Top">
+                <div id="logo">
+                    <a href="index.html"><button >F TELECOM</button></a>
+                </div>
+                <div id="logo2">
+                    <a href="index.html"><button >F</button></a>
+                </div>
+                <div id="search">
+                    <input  type="text" placeholder="Tìm kiếm sản phẩm tại đây ..." >
+                    <i class="fa fa-search"></i>
+                </div>
+                <div id="top-infor">
+                    <ul>
+                        <li >
+                            <a href="#">Địa điiểm</a>
+                            <i class="fa fa-map-marker"></i>
+                        </li>
+                        <li>
+                            <a href="">Đơn hàng</a>
+                            <i class="fa fa-truck"></i>
+                        </li>
+                        <li>
+                            <a id="cart-amount" href="giohang.html">Giỏ hàng</a>
+                            <i class="fa fa-cart-arrow-down"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div id="personal">
+                    <a href="login.html"><i class="fa fa-user" aria-hidden="true"></i></a>
+                </div>
+                <div id="login">
+                    <a href="login.html"><button>ĐĂNG NHẬP</button></a>
+                </div>
+                <div id="barnews">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div id="content">
+                <div id="top-content">
+                    <div id="menu">
+                        <ul class="root">
+                            <li><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Điện thoại</a>
+                                <ul class="submenu">
+                                    <li><a href="">Apple</a></li>
+                                    <li><a href="">SamSung</a></li>
+                                    <li><a href="">Xiaomi</a></li>
+                                    <li><a href="">Oppo</a></li>
+                                    <li><a href="">ViVo</a></li>
+                                    <li><a href="">Nokia</a></li>
+                                    <li><a href="">Realme</a></li>
+                                    <li><a href="">Oneplus</a></li>
+                                    <li><a href="">Huawei</a></li>
+                                    <li><a href="">Motorola</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i> Laptop,PC</a>
+                                <ul class="submenu">
+                                    <li><a href="">Mac</a></li>
+                                    <li><a href="">HP</a></li>
+                                    <li><a href="">Dell</a></li>
+                                    <li><a href="">Lenovo</a></li>
+                                    <li><a href="">Surface</a></li>
+                                    <li><a href="">ASUS</a></li>
+                                    <li><a href="">ACER</a></li>
+                                    <li><a href="">MSI</a></li>
+                                    <li><a href="">Huawei</a></li>
+                                    <li><a href="">Acer</a></li>
+                                    <li><a href="">PC</a></li>
+                                </ul>
+                            </li>
+                            <li><a href=""><i class="fa fa-tablet" aria-hidden="true"></i> Tablet</a>
+                                <ul class="submenu">
+                                    <li><a href="">Ipad Pro</a></li>
+                                    <li><a href="">Ipad Air</a></li>
+                                    <li><a href="">Ipad Mini</a></li>
+                                    <li><a href="">SamSung Tab</a></li>
+                                    <li><a href="">Lenovo Tab</a></li>
+                                    <li><a href="">Xiaomi Pad</a></li>
+                                </ul>
+                            </li>
+                            <li><a href=""><i class="fa fa-headphones" aria-hidden="true"></i> Âm thanh</a>
+                                <ul class="submenu">
+                                    <li><a href="">Loa</a></li>
+                                    <li><a href="">Tai nghe</a></li>
+                                </ul>
+                            </li>
+                            <li><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i>Đồng hồ</a>
+                                <ul class="submenu">
+                                    <li><a href="">Apple Watch</a></li>
+                                    <li><a href="">SamSung Watch</a></li>
+                                    <li><a href="">Huawei Watch</a></li>
+                                    <li><a href="">Oppo Watch</a></li>
+                                    <li><a href="">Amazfit</a></li>
+                                </ul>
+                            </li>
+                            <li><a href=""><i class="fa fa-home" aria-hidden="true"></i> Nhà thông minh</a>
+                                <ul class="submenu">
+                                    <li><a href="">Máy hút bụi</a></li>
+                                    <li><a href="">Khoá thông minh</a></li>
+                                    <li><a href="">Máy lọc không khí</a></li>
+                                    <li><a href="">Đèn thông minh</a></li>
+                                    <li><a href="">TV BOX</a></li>
+                                    <li><a href="">Cảm biến thông minh</a></li>
+                                    <li><a href="">Camera An ninh</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="Phukien.html" target="_blank"><i class="fa fa-plug" aria-hidden="true"></i> Phụ kiện</a>
+                                <ul class="submenu">
+                                    <li><a href="">Phụ kiện Apple</a></li>
+                                    <li><a href="">Dán điện thoại/Laptop</a></li>
+                                    <li><a href="">Ốp lưng/ Bao da</a></li>
+                                    <li><a href="">Củ sạc,dây cáp</a></li>
+                                    <li><a href="">Pin dự phòng</a></li>
+                                    <li><a href="">Chuột/ bàn phím </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Hàng cũ</a>
+                                <ul class="submenu">
+                                    <li><a href="">Điện thoại</a></li>
+                                    <li><a href="">Laptop/PC</a></li>
+                                    <li><a href="">Máy tính bảng</a></li>
+                                    <li><a href="">Phụ kiện</a></li>
+                                    <li><a href="">Âm thanh</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="news.html"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tin công nghệ</a></li>
+                            <li><a href=""><i class="fa fa-bullhorn" aria-hidden="true"></i> Khuyến mãi</a></li>
+                        </ul>
+                    </div>
+                    <!------------------------------------------------>
+                    <!------------------------------------------------>
+                    <div class="banner middle">
+                        <div class="slides">
+                            <input type="radio" name="r" id="r1" checked>
+                            <input type="radio" name="r" id="r2" >
+                            <input type="radio" name="r" id="r3" >
+                            <input type="radio" name="r" id="r4" >
+                            <div class="slide s1">
+                                <a href="#"><img src="Image/S22.jpg" alt=""></a>
+                            </div>
+                            <div class="slide">
+                                <a href="#"><img src="Image/MacBook_Air_M1.jpg" alt=""></a>
+                            </div>
+                            <div class="slide">
+                                <a href=""><img src="Image/note_11_hotsale.jpg" alt=""></a>
+                            </div>
+                            <div class="slide">
+                                <a href="#"><img src="Image/S22.jpg" alt=""></a>
+                            </div>                            
+                        </div>
+                        <div class="navigation">
+                            <label for="r1" class="bar"></label>
+                            <label for="r2" class="bar"></label>
+                            <label for="r3" class="bar"></label>
+                            <label for="r4" class="bar"></label>
+                        </div>
+                    </div>
+                    <div id="pannel-left">
+                        <a href=""><iframe width="560" height="315" src="https://www.youtube.com/embed/GPX7CiADjIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a>
+                        <a href=""><iframe width="560" height="315" src="https://www.youtube.com/embed/m8jp_VQQsJM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a>
+                    </div>
+                </div>
+                <div id="menumobile">
+                    <ul class="rooter">
+                        <li><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Điện thoại</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i> Laptop,PC</a>
+                        </li>
+                        <li><a href=""><i class="fa fa-tablet" aria-hidden="true"></i> Tablet</a>
+                        </li>
+                        <li><a href=""><i class="fa fa-headphones" aria-hidden="true"></i> Âm thanh</a>
+                        </li>
+                        <li><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i>Đồng hồ</a>
+                        </li>
+                        <li><a href=""><i class="fa fa-home" aria-hidden="true"></i>Nhà thông minh</a>
+                        </li>
+                        <li><a href="Phukien.html" target="_blank"><i class="fa fa-plug" aria-hidden="true"></i> Phụ kiện</a>
+                        </li>
+                        <li><a href="">Hàng cũ</a>
+                        </li>
+                        <li><a href="news.html"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tin công nghệ</a></li>
+                        <li><a href=""><i class="fa fa-bullhorn" aria-hidden="true"></i> Khuyến mãi</a></li>
+                    </ul>
+                </div>
+                <div class="slider-product-one">
+                    <div class="containera">
+                        <div class="slider-product-one-content">
+                            <div class="slider-product-one-content-title">
+                                <h2>Săn sale mỗi ngày  </h2>
+                            </div>
+                            <div class="slider-product-one-content-container">
+                                <div class="slider-product-one-content-items-content">
+                                    <div class="slider-product-one-content-items">
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/iphone-13-pro-max-gold.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp" href="detail.html">Iphone 13 Pro Max</a>
+                                                </li>
+                                                <li><a> 32.990.000<sup>đ</sup></a><a>-6%</a></li>
+                                                <li class="gia">28.000.000đ</li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/Samsung-Galaxy-A53.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp">Samsung Galaxy A53</a>
+                                                </li>
+                                                <li><a> 32.990.000<sup>đ</sup></a><a>-6%</a></li>
+                                                <li class="gia">9.000.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/Galaxy-S22-Ultra-Green.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp">SS Galaxy S22 Ultra</a>
+                                                </li>
+                                                <li><a> 32.990.000<sup>đ</sup></a><a>-6%</a></li>
+                                                <li class="gia">15.000.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/Xiaomi-12-xam.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp">Xiaomi 12</a>
+                                                </li>
+                                                <li><a> 22.990.000<sup>đ</sup></a><a>-8%</a></li>
+                                                <li class="gia">19.000.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/oppo-reno7-z.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp">Oppo Reno 7z</a>
+                                                </li>
+                                                <li><a> 12.990.000<sup>đ</sup></a><a>-6%</a></li>
+                                                <li class="gia">11.000.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/vivo-y21s.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp">Vivo Y21s</a>
+                                                </li>
+                                                <li><a> 6.990.000<sup>đ</sup></a><a>-2%</a></li>
+                                                <li class="gia">6.000.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/realme-c21y-black.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp">Realme C21Y</a>
+                                                </li>
+                                                <li><a> 4.990.000<sup>đ</sup></a><a>-20%</a></li>
+                                                <li class="gia">4.000.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/realme-9-4g-vang.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp">Realme 9</a>
+                                                </li>
+                                                <li><a> 11.990.000<sup>đ</sup></a><a>-9%</a></li>
+                                                <li class="gia">9.800.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/iphone-12-xanh-la.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                                <li>
+                                                    <a class="tensp">iPhone 12</a>
+                                                </li>
+                                                <li><a> 20.990.000<sup>đ</sup></a><a>-11%</a></li>
+                                                <li class="gia">17.490.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/Samsung-galaxy-m53.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>HOT-SALE 22/05</p></li>
+                                                <li>
+                                                    <a class="tensp">Samsung Galaxy M53</a>
+                                                </li>
+                                                <li><a> 13.990.000<sup>đ</sup></a><a>-12%</a></li>
+                                                <li class="gia">12.290.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/intel-nuc-m15-i7.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                                <li>
+                                                    <a class="tensp">Intel NUC M15 i7</a>
+                                                </li>
+                                                <li><a> 32.990.000<sup>đ</sup></a><a>-26%</a></li>
+                                                <li class="gia">27.990.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/macbook-air-m1-2020.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                                <li>
+                                                    <a class="tensp">MacBook Air M1 2020</a>
+                                                </li>
+                                                <li><a> 33.990.000<sup>đ</sup></a><a>-14%</a></li>
+                                                <li class="gia">28.990.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/acer-nitro-5-gaming.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                                <li>
+                                                    <a class="tensp">Acer Nitro 5 Gaming</a>
+                                                </li>
+                                                <li><a> 22.990.000<sup>đ</sup></a><a>-16%</a></li>
+                                                <li class="gia">19.190.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/msi-gaming-ge66-raider-11uh-i7-259vn-600x60.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                                <li>
+                                                    <a class="tensp">MSI Gaming GE66 Raider</a>
+                                                </li>
+                                                <li><a> 22.990.000<sup>đ</sup></a><a>-16%</a></li>
+                                                <li class="gia">19.190.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                        <div class="slider-product-one-content-item ">
+                                            <img class="anh" src="Image/lg-gram-16-i7-16z90.jpg" alt="">
+                                            <div class="slider-product-one-content-item-text">
+                                                <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                                <li>
+                                                    <a class="tensp">LG GRAM 16 2021 i7</a>
+                                                </li>
+                                                <li><a> 22.990.000<sup>đ</sup></a><a>-16%</a></li>
+                                                <li class="gia">19.190.000<sup>đ</sup></li>
+                                                <li>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                </li>
+                                                <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <div class="content-mid">
+                    <div id="content-mid-top">
+                        <h2>ĐẠI TIỆC SAMSUNG</h2>
+                    </div>
+                    <div id="content-mid-sp">
+                        <div class="content-mid-sp-item"> 
+                            <div class="row ss-product">
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-z-flip-3.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Z Flip3 5G</a>
+                                        </li>
+                                        <li><a> 24.990.000<sup>đ</sup></a><a>-24%</a></li>
+                                        <li class="gia">18.990.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-z-fold-3.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Z Fold3 5G</a>
+                                        </li>
+                                        <li><a> 44.990.000<sup>đ</sup></a><a>-17%</a></li>
+                                        <li class="gia">36.990.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-tab-s7.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Tab S7</a>
+                                        </li>
+                                        <li><a> 18.990.000<sup>đ</sup></a><a>-6%</a></li>
+                                        <li class="gia">17.690.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-tab-s7-fe.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Tab S7 FE</a>
+                                        </li>
+                                        <li><a> 13.990.000<sup>đ</sup></a><a>-10%</a></li>
+                                        <li class="gia">12.490.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/Samsung-galaxy-m53.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy M33 5G</a>
+                                        </li>
+                                        <li><a> 7.690.000<sup>đ</sup></a><a>-11%</a></li>
+                                        <li class="gia">6.790.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-watch-4-1.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Watch 4 Classic 42mm</a>
+                                        </li>
+                                        <li><a> 8.490.000<sup>đ</sup></a><a>-11%</a></li>
+                                        <li class="gia">7.490.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-watch-4-2.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Watch 4 Special 40mm</a>
+                                        </li>
+                                        <li><a> 6.490.000<sup>đ</sup></a><a>-15%</a></li>
+                                        <li class="gia">5.490.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-watch-4-3.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Watch 4 LTE  42mm</a>
+                                        </li>
+                                        <li><a> 9.490.000<sup>đ</sup></a><a>-10%</a></li>
+                                        <li class="gia">8.490.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-watch-4-l4.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Watch 4 Spe LTE 42mm</a>
+                                        </li>
+                                        <li><a> 7.990.000<sup>đ</sup></a><a>-12%</a></li>
+                                        <li class="gia">6.990.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                                <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                    <img class="anh" src="Image/samsung-galaxy-watch-4-5.jpg" alt="">
+                                    <div class="slider-product-one-content-item-text">
+                                        <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                        <li>
+                                            <a class="tensp">Galaxy Watch 4 Classic 46mm</a>
+                                        </li>
+                                        <li><a> 8.990.000<sup>đ</sup></a><a>-22%</a></li>
+                                        <li class="gia">6.990.000<sup>đ</sup></li>
+                                        <li>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li onclick="addcart(this)" class="addcart"><i class="fa fa-shopping-cart"></i></li>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div id="content-mid-list">
+                        <h3>24h Công nghệ</h3>
+                        <div class="tintuc">
+                            <div class="newsfake">
+                                <img src="Image/tincn4.jpg" alt="">
+                                <a href="news.html" target="blank"><p>Làm sai thiết kế Apple hạn chế nhập màn hình của các thương hiệu Trung Quốc</p></a>
+                                <div class="timeandeye">
+                                    <i class="fa fa-clock-o" aria-hidden="true">16 mins ago</i>                                
+                                </div>
+                            </div>
+                            <div class="newsfake">
+                                <img src="Image/tincn5.jpg" alt="">
+                                <a href="https://vatvostudio.vn/xperia-1-iii-gia-34-trieu-da-dat-xperia-1-iv-se-con-dat-hon-nua/" target="blank"><p>Xperia III giá 43 triệu đã đắt, Xperia 1 IV sẽ đắt hơn nữa?</p></a>                      
+                                <div class="timeandeye">
+                                    <i class="fa fa-clock-o" aria-hidden="true">21 mins ago</i>                                
+                                </div>
+                            </div>  
+                            <div class="newsfake">
+                                <img src="Image/tincn6.jpg" alt="">
+                                <a href="https://vatvostudio.vn/elon-musk-duoc-vuong-quoc-anh-gui-thu-moi-thao-luan-cac-van-de-ve-twitter/"target="blank"><p>Elon Musk được Vương Quốc Anh gửi thư mời thảo luận các vấn đề về Twitter</p></a>
+                                <div class="timeandeye">
+                                    <i class="fa fa-clock-o" aria-hidden="true">2 mins ago</i>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quick-contact">
+                <ul>
+                    <li id="add-form">
+                            <img src="https://img.icons8.com/material-outlined/2x/facebook-messenger.png" alt="">
+                            Tư vấn
+                        </a>
+                    </li>
+                    <li><a href="#"><i class="fa-solid fa-angle-up"></i></a></li>
+                    <div class="add-form">
+                        <div class="add-form-content">
+                            <h2>F TELECOM<span id="add-close">━</span></h2>
+                            <img src="Image/fl-logo.png" alt="">
+                            <form action="">
+                                <input type="text" name="" id="chat" value="Chúng tôi có thể giúp gì cho bạn ?">
+                                <input type="text" name="" id="chat" >
+                                <input type="text" name="" id="chat" >
+                                <input type="text" name="" id="chat" >
+                                <input type="text" name="" id="chat" >
+                                <input type="text" name="" id="chat" >
+                                <input type="text" name="" id="chat" >
+                                <input type="text" name="" id="chat" >
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                            </form>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="bottom">
+                    <ul class="row">
+                        <li class="col c-4 m-3 l-1">
+                            <h3>Hỗ trợ - Dịch vụ</h3> 
+                            <ul class="news1">
+                                <li><a href="">Mua hàng trả góp</a></li>
+                                <li><a href="">Hướng dẫn đặt hàng và thanh toán</a></li>
+                                <li><a href="">Chính sách bảo mật</a></li>
+                                <li><a href="">Chính sách đổi trả</a></li>
+                                <li><a href="">Điều khoản mua bán</a></li>
+                            </ul>
+                        </li>
+                        <li class="col c-4 m-3 l-1">
+                            <h3>Thông tin liên hệ</h3>
+                            <ul class="news1 news2">
+                                <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i><b> Hotline:</b> 1900 2906</a></li>
+                                <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i> <b> Facebook:</b> ftelecom.facebook.com</a></li>
+                                <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i><b> Youtube:</b>  ftelecom.youtube.com</a></li>
+                            </ul>
+                        </li>
+                        <li class="col c-4 m-3 l-1">
+                            <h3>Tổng đài hỗ trợ</h3>
+                            <ul class="news1">
+                                <li>Gọi mua:<a href="">1800.1060</a>(7:30 - 22:00)</li>
+                                <li>Kỹ thuật:<a href="">1800.1763</a>(7:30 - 22:00)</li>
+                                <li>Khiếu nại:<a href="">1800.1062</a>(8:00 - 21:30)</li>
+                                <li>Bảo hành:<a href="">1800.1064</a>(8:00 - 21:00)</li>
+                            </ul>
+                        </li>
+                        <li class="col c-4 m-3 l-1">
+                            <h3>Thanh toán miễn phí</h3>
+                            <img src="Image/logo-master.png" alt="">
+                            <img src="Image/logo-visa.png" alt=""> <br>
+                            <img src="Image/logo-atm.png" alt="">
+                            <img src="Image/logo-jcb.png" alt=""> <br>
+                            <img src="Image/logo-samsungpay.png" alt="">
+                            <img src="Image/logo-vnpay.png" alt="">
+                        </li>
+                        <li class="col c-4 m-7 l-1">
+                            <h3>Đơn vị vận chuyển</h3>
+                            <img src="Image/ems-vnpost-.jpg" alt="">
+                            <img src="Image/giao-hang-tiet-kiem.png" alt="">
+                            <img src="Image/giaohangnhanh.jpg" alt="">
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="add-bottom">
+                <p>Địa chỉ: Phường Ngọc Khánh, Quận Ba Đình, Thành Phố Hà Nội. <br> Tổng đài hỗ trợ: 19001221 - Enail: cskh@hotro.ftelecom.vn</p>
+                <p>Người thiết kế: Nguyễn Thế Dương   -   Điện thoại liên hệ: 038962****</p>
+                <p>@2022 - Bản quyền thuộc về Nguyễn Thế Dương</p>
+            </div>
+        </div>
+    </body>
+    <script src="oan2.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</html>
