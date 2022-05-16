@@ -1,0 +1,852 @@
+<html>
+    <head>
+        <title>Sản phẩm</title>
+        <link rel="stylesheet" href="Phukien.css">
+        <link rel="icon" href="/favicon/favicon.ico">
+        <script src="https://kit.fontawesome.com/8d6ade88ff.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./fontawesome-free-6.0.0-web/css/all.min.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".addcart").click(function(){
+                    var cartAmount = Number(sessionStorage.getItem("cartAmount"));
+                    if(cartAmount != null)
+                        cartAmount += 1;
+                    else
+                        cartAmount = 1;
+                    $("#cart-amount").text("Giỏ hàng ("+cartAmount+")");
+                    sessionStorage.setItem("cartAmount",cartAmount);
+    
+                    var pImg = $(this).parent().parent().find(".anh").attr("src");
+                    var pName = $(this).parent().parent().find(".tensp").text();
+                    var pPrice = $(this).parent().parent().find(".gia").text();
+                    var product = {
+                        "img": pImg,
+                        "name": pName,
+                        "price": pPrice
+                    }
+                    // alert(pImg +" "+ pName +" "+ pPrice);
+                    var cart = sessionStorage.getItem("cart");
+                    var cartProducts = "";
+                    if(cart!=null){
+                        cartProducts = cart +","+ JSON.stringify(product);
+                    }else
+                        cartProducts = JSON.stringify(product);
+                    sessionStorage.setItem("cart", cartProducts);
+                });
+                $('.slider-product-one-content-items').slick({
+                    infinite: true,
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                    arrows:false,
+                    responsive: [
+                    {
+                    breakpoint: 1199,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 2
+                    }
+                    },
+                    {
+                    breakpoint: 710,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 2
+                    }
+                    }
+                    ]
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="Top">
+            <div id="logo">
+                <a href="Doan2.html"><button >F TELECOM</button></a>
+            </div>
+            <div id="logo2">
+                <a href="Doan2.html"><button >F</button></a>
+            </div>
+            <div id="search">
+                <input  type="text" placeholder="Tìm kiếm sản phẩm tại đây ..." >
+                <i class="fa fa-search"></i>
+            </div>
+            <div id="top-infor">
+                <ul>
+                    <li id="add-form">
+                        <div class="icon">
+                            <a href="">Địa chỉ</a>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <a href="">Đơn hàng</a>
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <a onclick="showcart()" id="cart-amount" href="giohang.html">Giỏ hàng</a>
+                            <i class="fa fa-cart-arrow-down" aria-hidden="true"><span id="countsp">0</span></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="personal">
+                <a href=""><i class="fa fa-user" aria-hidden="true"></i></a>
+            </div>
+            <div id="barnews">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div id="content">
+            <div class="slider-product-one">
+                <div class="containera">
+                    <div class="slider-product-one-content">
+                        <div class="slider-product-one-content-title">
+                            <h2>Săn sale mỗi ngày  </h2>
+                        </div>
+                        <div class="slider-product-one-content-container">
+                            <div class="slider-product-one-content-items-content">
+                                <div class="slider-product-one-content-items">
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/tainghe1.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm giá kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Hydrus TS12BC</a>
+                                            </li>
+                                            <li><a> 550.000đ<sup>đ</sup></a><a>-45%</a></li>
+                                            <li class="gia">302.000đ</li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/adapter-sac-usb-hydrus-acl2018-thumb-2-600x600.jpeg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Sạc 2 cổng Hydrus ACL2018</a>
+                                            </li>
+                                            <li><a> 200.000<sup>đ</sup></a><a>-50%</a></li>
+                                            <li class="gia">100.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/ava-lj-jp199-ava-600x600.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">AVA+ LJ JP199</a>
+                                            </li>
+                                            <li><a> 350.000<sup>đ</sup></a><a>-43%</a></li>
+                                            <li class="gia">199.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/bluetooth-true-wireless-jbl-t115twswhtas-thumb-1-600x600.jpeg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Tai nghe JBL T115TWS</a>
+                                            </li>
+                                            <li><a> 1.490.000<sup>đ</sup></a><a>-33%</a></li>
+                                            <li class="gia">990.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/bluetooth-mozard-x21-ava-600x600.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Loa Bluetooth Mozard X21</a>
+                                            </li>
+                                            <li><a> 550.000<sup>đ</sup></a><a>-20%</a></li>
+                                            <li class="gia">440.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/camera-ip-ngoai-troi-2mp-imou-bullet-2e-d-trang-thumb-600x600.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Camera IP 2MP Bullet 2E-D</a>
+                                            </li>
+                                            <li><a> 1.790.000<sup>đ</sup></a><a>-30%</a></li>
+                                            <li class="gia">1.253.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/tai-nghe-chup-tai-mozard-ip-878.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Tai nghe chụp tai Mozard 878</a>
+                                            </li>
+                                            <li><a> 32.990.000<sup>đ</sup></a><a>-6%</a></li>
+                                            <li class="gia">15.000.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/tai-nghe-bluetooth-airpods-2-wireless-charge-mrxj2-thumb-600x600.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">AirPords 2 MRXJ2</a>
+                                            </li>
+                                            <li><a> 5.590.000<sup>đ</sup></a><a>-37%</a></li>
+                                            <li class="gia">3.490.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/12-cap-type-c-type.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Cáp type C Apple MQ4H2</a>
+                                            </li>
+                                            <li><a> 1.290.000<sup>đ</sup></a><a>-10%</a></li>
+                                            <li class="gia">1.161.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/bluetooth-mozard-s21.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Loa Bluetooth Mozard S21</a>
+                                            </li>
+                                            <li><a> 550.000<sup>đ</sup></a><a>-20%</a></li>
+                                            <li class="gia">440.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/chuot-bluetooth-apple.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kích sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Chuột Apple MMTN2</a>
+                                            </li>
+                                            <li><a> 2.490.000<sup>đ</sup></a><a>-20%</a></li>
+                                            <li class="gia">1.992.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/loa-bluetooth-mozard-y550-plu.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                            <li>
+                                                <a class="tensp">Loa Bluetooth Mozarđ Y550 Plus</a>
+                                            </li>
+                                            <li><a> 550.000<sup>đ</sup></a><a>-20%</a></li>
+                                            <li class="gia">440.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/loa-bluetooth-mozard-y550.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                            <li>
+                                                <a class="tensp">Loa Bluetooth Mozarđ Y550</a>
+                                            </li>
+                                            <li><a> 500.000<sup>đ</sup></a><a>-30%</a></li>
+                                            <li class="gia">350.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/loa-keo-bluetooth-mozard.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                            <li>
+                                                <a class="tensp">Loa Kéo Bluetooth Mozard L1028K</a>
+                                            </li>
+                                            <li><a> 2.200.000<sup>đ</sup></a><a>-30%</a></li>
+                                            <li class="gia">1.540.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                    <div class="slider-product-one-content-item ">
+                                        <img class="anh" src="Image/op-magsafe-iphone.jpg" alt="">
+                                        <div class="slider-product-one-content-item-text">
+                                            <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                            <li>
+                                                <a class="tensp">Ốp lưng MAGsafe</a>
+                                            </li>
+                                            <li><a> 1.590.000<sup>đ</sup></a><a>-50%</a></li>
+                                            <li class="gia">795.000<sup>đ</sup></li>
+                                            <li>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+                <!------------------------------------------------------------------------------------------------------->
+            <div class="content-mid">
+                <div id="bannertbtm">
+                    <img src="Image/DESKTOPTagline7-1200x138.png" alt="">
+                </div>
+                <div id="content-mid-sp">
+                    <div class="content-mid-sp-item"> 
+                        <div class="row ss-product">
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/tai-nghe-chup-tai-gaming-asus-tuf-h3-den-do-avatar-1-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                    <li>
+                                        <a class="tensp">Asus TUF H3</a>
+                                    </li>
+                                    <li><a>990.000<sup>đ</sup></a><a>-20%</a></li>
+                                    <li class="gia">790.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/co-co-day-gaming-razer-blackwidow-ava-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                    <li>
+                                        <a class="tensp">Phím cơ Razer BlackWidow</a>
+                                    </li>
+                                    <li><a> 3.200.000<sup>đ</sup></a><a>-10%</a></li>
+                                    <li class="gia">2.880.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/co-day-gaming-razer-huntsman-tournament-edition-ava-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                    <li>
+                                        <a class="tensp">Phím cơ Razer Huntsman</a>
+                                    </li>
+                                    <li><a> 3.549.000<sup>đ</sup></a><a>-10%</a></li>
+                                    <li class="gia">3.194.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/chuot-gaming-hyperx-pulsefire-core-rgb-den-01-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Chỉ bán online</p></li>
+                                    <li>
+                                        <a class="tensp">Chuột HyperX RGB</a>
+                                    </li>
+                                    <li><a> 690.000<sup>đ</sup></a><a>-10%</a></li>
+                                    <li class="gia">621.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/chup-tai-gaming-soundpeats-g1-thumb-600x600.jpeg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Chỉ bán online</p></li>
+                                    <li>
+                                        <a class="tensp">Tai nghe Soundpeats G1</a>
+                                    </li>
+                                    <li><a> 590.000<sup>đ</sup></a><a>-11%</a></li>
+                                    <li class="gia">531.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/samsung-galaxy-watch-4-1.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                    <li>
+                                        <a class="tensp">Galaxy Watch 4 Classic 42mm</a>
+                                    </li>
+                                    <li><a> 8.490.000<sup>đ</sup></a><a>-11%</a></li>
+                                    <li class="gia">7.490.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/samsung-galaxy-watch-4-2.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                    <li>
+                                        <a class="tensp">Galaxy Watch 4 Special 40mm</a>
+                                    </li>
+                                    <li><a> 6.490.000<sup>đ</sup></a><a>-15%</a></li>
+                                    <li class="gia">5.490.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/samsung-galaxy-watch-4-3.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                    <li>
+                                        <a class="tensp">Galaxy Watch 4 LTE Classic 42mm</a>
+                                    </li>
+                                    <li><a> 9.490.000<sup>đ</sup></a><a>-10%</a></li>
+                                    <li class="gia">8.490.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/samsung-galaxy-watch-4-l4.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                    <li>
+                                        <a class="tensp">Galaxy Watch 4 Special LTE 42mm</a>
+                                    </li>
+                                    <li><a> 7.990.000<sup>đ</sup></a><a>-12%</a></li>
+                                    <li class="gia">6.990.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/samsung-galaxy-watch-4-5.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Trợ giá mùa dịch</p></li>
+                                    <li>
+                                        <a class="tensp">Galaxy Watch 4 Classic 46mm</a>
+                                    </li>
+                                    <li><a> 8.990.000<sup>đ</sup></a><a>-22%</a></li>
+                                    <li class="gia">6.990.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="bannertbtm">
+                    <img src="Image/DESKTOPTagline6-1200x150.png" alt="">
+                </div>
+                <div id="content-mid-sp">
+                    <div class="content-mid-sp-item"> 
+                        <div class="row ss-product">
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/hafele-than-khoa-nho-el7200-tc-01-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Chỉ bán online</p></li>
+                                    <li>
+                                        <a class="tensp">Khoá điện tử Hafele</a>
+                                    </li>
+                                    <li><a> 6.470.000<sup>đ</sup></a><a>-14%</a></li>
+                                    <li class="gia">5.564.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/tv-box-fpt-play-box-t550-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                    <li>
+                                        <a class="tensp">TV BOX FPT Play T550</a>
+                                    </li>
+                                    <li><a> 1.690.000<sup>đ</sup></a><a>-10%</a></li>
+                                    <li class="gia">1.521.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/phich-cam-thong-minh-dien-quang-apollo-dq-sp11-01-1.-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                    <li>
+                                        <a class="tensp">Phích cắm thông minh Apollo</a>
+                                    </li>
+                                    <li><a> 297.000<sup>đ</sup></a><a>-30%</a></li>
+                                    <li class="gia">207.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/dieu-khien-hong-ngoai-dien-quang-apollo-ir11-s-1.-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                    <li>
+                                        <a class="tensp">Bộ điều khiển hồng ngoại</a>
+                                    </li>
+                                    <li><a> 395.000<sup>đ</sup></a><a>-30%</a></li>
+                                    <li class="gia">276.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/bong-den-thong-minh-87w-dimable-tp-link-tapo-l530e-thumb-600x600.jpeg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                    <li>
+                                        <a class="tensp">Bóng đèn LED thông minh</a>
+                                    </li>
+                                    <li><a> 249.000<sup>đ</sup></a><a>-20%</a></li>
+                                    <li class="gia">199.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/hafele-than-khoa-nho-el7200-tc-01-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Chỉ bán online</p></li>
+                                    <li>
+                                        <a class="tensp">Khoá điện tử Hafele</a>
+                                    </li>
+                                    <li><a> 6.470.000<sup>đ</sup></a><a>-14%</a></li>
+                                    <li class="gia">5.564.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/tv-box-fpt-play-box-t550-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                    <li>
+                                        <a class="tensp">TV BOX FPT Play T550</a>
+                                    </li>
+                                    <li><a> 1.690.000<sup>đ</sup></a><a>-10%</a></li>
+                                    <li class="gia">1.521.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/phich-cam-thong-minh-dien-quang-apollo-dq-sp11-01-1.-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                    <li>
+                                        <a class="tensp">Phích cắm thông minh Apollo</a>
+                                    </li>
+                                    <li><a> 297.000<sup>đ</sup></a><a>-30%</a></li>
+                                    <li class="gia">207.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/dieu-khien-hong-ngoai-dien-quang-apollo-ir11-s-1.-600x600.jpg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Online giá rẻ</p></li>
+                                    <li>
+                                        <a class="tensp">Bộ điều khiển hồng ngoại</a>
+                                    </li>
+                                    <li><a> 395.000<sup>đ</sup></a><a>-30%</a></li>
+                                    <li class="gia">276.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                            <div class="col l-2 c-4 m-2 ss-product-content-item">
+                                <img class="anh" src="Image/bong-den-thong-minh-87w-dimable-tp-link-tapo-l530e-thumb-600x600.jpeg" alt="">
+                                <div class="slider-product-one-content-item-text">
+                                    <li><img src="Image/icon1.png" alt=""><p>Giảm kịch sàn</p></li>
+                                    <li>
+                                        <a class="tensp">Bóng đèn LED thông minh</a>
+                                    </li>
+                                    <li><a> 249.000<sup>đ</sup></a><a>-20%</a></li>
+                                    <li class="gia">199.000<sup>đ</sup></li>
+                                    <li>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </li>
+                                    <li onclick="addcart(this)" class="addcart"><a >Thêm vào giỏ hàng</a></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="bottom">
+                <ul class="row">
+                    <li class="col c-4 m-3 l-1">
+                        <h3>Hỗ trợ - Dịch vụ</h3> 
+                        <ul class="news1">
+                            <li><a href="">Mua hàng trả góp</a></li>
+                            <li><a href="">Hướng dẫn đặt hàng và thanh toán</a></li>
+                            <li><a href="">Chính sách bảo mật</a></li>
+                            <li><a href="">Chính sách đổi trả</a></li>
+                            <li><a href="">Điều khoản mua bán</a></li>
+                        </ul>
+                    </li>
+                    <li class="col c-4 m-3 l-1">
+                        <h3>Thông tin liên hệ</h3>
+                        <ul class="news1 news2">
+                            <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i><b> Hotline:</b> 1900 2906</a></li>
+                            <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i> <b> Facebook:</b> ftelecom.facebook.com</a></li>
+                            <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i><b> Youtube:</b>  ftelecom.youtube.com</a></li>
+                        </ul>
+                    </li>
+                    <li class="col c-4 m-3 l-1">
+                        <h3>Tổng đài hỗ trợ</h3>
+                        <ul class="news1">
+                            <li>Gọi mua:<a href="">1800.1060</a>(7:30 - 22:00)</li>
+                            <li>Kỹ thuật:<a href="">1800.1763</a>(7:30 - 22:00)</li>
+                            <li>Khiếu nại:<a href="">1800.1062</a>(8:00 - 21:30)</li>
+                            <li>Bảo hành:<a href="">1800.1064</a>(8:00 - 21:00)</li>
+                        </ul>
+                    </li>
+                    <li class="col c-4 m-3 l-1">
+                        <h3>Thanh toán miễn phí</h3>
+                        <img src="Image/logo-master.png" alt="">
+                        <img src="Image/logo-visa.png" alt=""> <br>
+                        <img src="Image/logo-atm.png" alt="">
+                        <img src="Image/logo-jcb.png" alt=""> <br>
+                        <img src="Image/logo-samsungpay.png" alt="">
+                        <img src="Image/logo-vnpay.png" alt="">
+                    </li>
+                    <li class="col c-4 m-7 l-1">
+                        <h3>Đơn vị vận chuyển</h3>
+                        <img src="Image/ems-vnpost-.jpg" alt="">
+                        <img src="Image/giao-hang-tiet-kiem.png" alt="">
+                        <img src="Image/giaohangnhanh.jpg" alt="">
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="add-bottom">
+            <p>Địa chỉ: Phường Ngọc Khánh, Quận Ba Đình, Thành Phố Hà Nội. <br> Tổng đài hỗ trợ: 19001221 - Enail: cskh@hotro.ftelecom.vn</p>
+            <p>Người thiết kế: Nguyễn Thế Dương   -   Điện thoại liên hệ: 038962****</p>
+            <p>@2022 - Bản quyền thuộc về Nguyễn Thế Dương</p>
+        </div>
+    </body>
+    <script src="Phukien.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</html>

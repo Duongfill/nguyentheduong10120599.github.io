@@ -1,0 +1,39 @@
+#content{
+    width: 100%;
+    height: 200px;
+    background-color: #12162d;
+}
+#top p{
+    font-size: 35;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    padding-top: 2%;
+}
+#image{
+    width: 85%;
+    margin: 0 auto;
+}
+#image img{
+    width: 100%;
+    border-radius: 10px;
+}
+#news{
+    width: 60%;
+    margin: 0 auto;
+}
+#news p{
+    line-height: 2;
+    font-weight: 550;
+}
+#news img{
+    width: 100%;
+}
+#add-bottom{
+    margin: 0 auto;
+    background-color: #CCC;
+}
+#add-bottom p{
+    text-align: center;
+    font-size: small;
+}

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="login.css">
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.message a').click(function(){
+                $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+            });
+            })
+        </script>
+    
+    </head>
+    <body>
+        <div class="login-page">
+            <div class="form">
+              <form class="register-form">
+                <input type="text" placeholder="name"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="email address"/>
+                <button>create</button>
+                <p class="message">Bạn dã có tài khoản? <a href="#">Sign In</a></p>
+              </form>
+              <form class="login-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <a href="index.html" id="logina">login </a>
+                <p class="message">Bạn chưa có tài khoản? <a href="#">Tạo tài khoản</a></p>
+                <div id="loginwith">
+                    <a href="https://accounts.google.com/" class="logo"><img src="Image/Google__G__Logo.svg.png" alt=""></a>
+                    <a href="https://www.facebook.com/" class="logo"><img src="Image/Facebook_Logo.png" alt=""></a>
+                    <a href="https://twitter.com/" class="logo"><img src="Image/pnglot.com-twitter-bird-logo-png-139932.png" alt=""></a>
+                </div>
+              </form>
+
+            </div>
+          </div>
+    </body>
+   
+</html>

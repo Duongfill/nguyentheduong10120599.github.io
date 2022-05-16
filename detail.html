@@ -1,0 +1,370 @@
+<html>
+    <head>
+        <title>TELECOM STORE</title>
+        <script src="https://kit.fontawesome.com/8d6ade88ff.js" crossorigin="anonymous"></script>
+        <script src="jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="./fontawesome-free-6.0.0-web/css/all.min.css"/>
+        <link rel="stylesheet" href="detail.css">
+        <link rel="icon" href="/favicon/favicon.ico">
+        <script src="https://kit.fontawesome.com/8d6ade88ff.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./fontawesome-free-6.0.0-web/css/all.min.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".addcart").click(function(){
+                    var cartAmount = Number(sessionStorage.getItem("cartAmount"));
+                    if(cartAmount != null)
+                        cartAmount += 1;
+                    else
+                        cartAmount = 1;
+                    $("#cart-amount").text("Giỏ hàng ("+cartAmount+")");
+                    sessionStorage.setItem("cartAmount",cartAmount);
+    
+                    var pImg = $(this).parent().parent().find(".anh").attr("src");
+                    var pName = $(this).parent().parent().find(".tensp").text();
+                    var pPrice = $(this).parent().parent().find(".gia").text();
+                    var product = {
+                        "img": pImg,
+                        "name": pName,
+                        "price": pPrice
+                    }
+                    // alert(pImg +" "+ pName +" "+ pPrice);
+                    var cart = sessionStorage.getItem("cart");
+                    var cartProducts = "";
+                    if(cart!=null){
+                        cartProducts = cart +","+ JSON.stringify(product);
+                    }else
+                        cartProducts = JSON.stringify(product);
+                    sessionStorage.setItem("cart", cartProducts);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="Top">
+            <div id="logo">
+                <a href="index.html"><button >F TELECOM</button></a>
+            </div>
+            <div id="logo2">
+                <a href="index.html"><button >F</button></a>
+            </div>
+            <div id="search">
+                <input  type="text" placeholder="Tìm kiếm sản phẩm tại đây ..." >
+                <i class="fa fa-search"></i>
+            </div>
+            <div id="top-infor">
+                <ul>
+                    <li>
+                        <div class="icon">
+                            <a id="cart-amount" href="giohang.html">Giỏ hàng</a>
+                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="personal">
+                <a href=""><i class="fa fa-user" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <!------------------------------------------------------------------------------------------------->
+        <div id="content">
+            <div>
+                <a>Điện thoại</a>
+                <a >></a>
+                <a>Apple</a>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o"></i>
+                26 đánh giá
+            </div>
+            <div class="facebook">
+                <h3>Điện thoại iPhone 13 Pro Max</h3>
+                <div id="las">
+                    <div id="like">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like 5.4k                    
+                    </div>
+                    <div id="share">
+                        <i class="fa fa-share" aria-hidden="true"></i> Share
+                    </div>                    
+                </div>
+            </div>
+            <hr>
+            <div class="bannerx">
+                <div class="banner">
+                    <div class="slides">
+                        <input type="radio" name="r" id="r1" checked>
+                        <input type="radio" name="r" id="r2" >
+                        <input type="radio" name="r" id="r3" >
+                        <input type="radio" name="r" id="r4" >
+                        <input type="radio" name="r" id="r5" >
+                        <input type="radio" name="r" id="r6" >
+                        <input type="radio" name="r" id="r7" >
+                        <input type="radio" name="r" id="r8" >
+                        <input type="radio" name="r" id="r9" >
+                        <input type="radio" name="r" id="r10" >
+                        <div class="slide s1">
+                            <a href="#"><iframe width="100%" height="350" src="https://www.youtube.com/embed/L6d5DtA4zXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a>
+                        </div>
+                        <div class="slide">
+                            <a href="#"><img src="Image/iphone-13-pro-max-2-2.jpg" alt=""></a>
+                        </div>
+                        <div class="slide">
+                            <a href=""><img src="Image/iphone-13-pro-max-3-2.jpg" alt=""></a>
+                        </div>
+                        <div class="slide">
+                            <a href="#"><img src="Image/iphone-13-pro-max-4-2.jpg" alt=""></a>
+                        </div>      
+                        <div class="slide">
+                            <a href="#"><img src="Image/iphone-13-pro-max-5-2.jpg" alt=""></a>
+                        </div>  
+                        <div class="slide">
+                            <a href="#"><img src="Image/iphone-13-pro-max-6-2.jpg" alt=""></a>
+                        </div>  
+                        <div class="slide">
+                            <a href="#"><img src="Image/iphone-13-pro-max-xam.jpg" alt=""></a>
+                        </div>       
+                        <div class="slide">
+                            <a href="#"><img src="Image/iphone-13-pro-max-xanh-1.jpg" alt=""></a>
+                        </div>
+                        <div class="slide">
+                            <a href="#"><img src="Image/iphone-13-pro-xanh-xa-1.jpg" alt=""></a>
+                        </div>
+                        <div class="slide">
+                            <a href="#"><img src="Image/iphone-13-pro-max-golden.jpg" alt=""></a>
+                        </div>                    
+                    </div>
+                    <div class="navigation">
+                        <label for="r1" class="bar"><img src="Image/thumnailvideoip13.jpg" alt=""></label>
+                        <label for="r2" class="bar"><img src="Image/iphone-13-pro-max-2-2.jpg" alt=""></label>
+                        <label for="r3" class="bar"> <img src="Image/iphone-13-pro-max-3-2.jpg" alt=""></label>
+                        <label for="r4" class="bar"><img src="Image/iphone-13-pro-max-4-2.jpg" alt=""></label>
+                        <label for="r5" class="bar"><img src="Image/iphone-13-pro-max-5-2.jpg" alt=""></label>
+                        <label for="r6" class="bar"><img src="Image/iphone-13-pro-max-6-2.jpg" alt=""></label>
+                        <label for="r7" class="bar"> <img src="Image/iphone-13-pro-max-xam.jpg" alt=""></label>
+                        <label for="r8" class="bar"><img src="Image/iphone-13-pro-max-xanh-1.jpg" alt=""></label>
+                        <label for="r9" class="bar"> <img src="Image/iphone-13-pro-xanh-xa-1.jpg" alt=""></label>
+                        <label for="r10" class="bar"><img src="Image/iphone-13-pro-max-golden.jpg" alt=""></label>
+                    </div>
+                </div>
+                <div class="information">
+                    <div class="information-item">
+                        <div class="bannercolor">
+                            <div class="slideas">
+                                <input type="radio" name="x" id="x1" checked>
+                                <input type="radio" name="x" id="x2" >
+                                <input type="radio" name="x" id="x3" >
+                                <input type="radio" name="x" id="x4" >
+                                <input type="radio" name="x" id="x5" >
+                                <div class="slidea s2">
+                                    <a href="#"><img class="anh" src="Image/iphone-13-pro-max-silver.jpg" alt=""></a>
+                                </div>
+                                <div class="slidea">
+                                    <a href="#"><img src="Image/iphone-13-pro-max-xam.jpg" alt=""></a>
+                                </div>
+                                <div class="slidea">
+                                    <a href="#"><img src="Image/iphone-13-pro-max-xanh-1.jpg" alt=""></a>
+                                </div>
+                                <div class="slidea">
+                                    <a href="#"><img src="Image/iphone-13-pro-xanh-xa-1.jpg" alt=""></a>
+                                </div>
+                                <div class="slidea">
+                                    <a href="#"><img src="Image/iphone-13-pro-max-golden.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="navigationa">
+                                <label for="x1" class="bara"><p></p></label>
+                                <label for="x2" class="bara"><p></p></label>
+                                <label for="x3" class="bara"><p></p></label>
+                                <label for="x4" class="bara"><p></p></label>
+                                <label for="x5" class="bara"><p></p></label>
+                            </div>
+                        </div>
+                        <div class="information-item-text">
+                            <li>
+                                <a class="tensp">Iphone 13 Promax</a>
+                            </li>
+                            <li class="gia">28.000.000đ</li>
+                            <li>Đổi trong 15 ngày nếu có lỗi từ nhà sản xuất</li>
+                            <li>Cam kết hàng chính hãng từ Apple</li>
+                        
+                            <li>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </li>
+                            <li onclick="addcart(this)" class="addcart"><button>Mua ngay</button></li>
+                            <li onclick="addcart(this)" class="addcart"><button>Trả góp 0% lãi xuất</button></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bannery">
+                <div class="infor-item">
+                    <ul>
+                        <img src="Image/iphone-13-pro-max-infor.jpg" alt="">
+                        <p>Điện thoại iPhone 13 Pro Max 128 GB - siêu phẩm được mong chờ nhất ở nửa cuối năm 2021 đến từ Apple. 
+                            Máy có thiết kế không mấy đột phá khi so với người tiền nhiệm, 
+                            bên trong đây vẫn là một sản phẩm có màn hình siêu đẹp, tần số quét được nâng cấp lên 120 Hz mượt mà,
+                            cảm biến camera có kích thước lớn hơn,    <a id="add-form">Xem thêm</a> .......
+                        </p>
+                        <div class="add-form">
+                            <div class="add-form-content">
+                                <h2>iPhone 13 Pro Max<span id="add-close">━</span></h2>
+                                    <img src="Image/iphone-13-pro-max-infor.jpg" alt="">
+                                    <p>Điện thoại iPhone 13 Pro Max 128 GB - siêu phẩm được mong chờ nhất ở nửa cuối năm 2021 đến từ Apple. 
+                                        Máy có thiết kế không mấy đột phá khi so với người tiền nhiệm, 
+                                        bên trong đây vẫn là một sản phẩm có màn hình siêu đẹp, tần số quét được nâng cấp lên 120 Hz mượt mà,
+                                            cảm biến camera có kích thước lớn hơn, cùng hiệu năng mạnh mẽ với sức mạnh đến từ Apple A15 Bionic, sẵn sàng cùng bạn chinh phục mọi thử thách.
+                                    </p>
+                                    <h4>Thiết kế đẳng cấp hàng đầu</h4> 
+                                    <p>iPhone mới kế thừa thiết kế đặc trưng từ iPhone 12 Pro Max khi sở hữu khung viền vuông vức, mặt lưng kính cùng màn hình tai thỏ tràn viền nằm ở phía trước.</p>
+                                    <img src="Image/iphone-13-pro-max-3.jpg" alt="">
+                                    <p>Với iPhone 13 Pro Max phần tai thỏ đã được thu gọn lại 20% so với thế hệ trước,
+                                            không chỉ giải phóng nhiều không gian hiển thị hơn mà còn giúp mặt trước chiếc điện thoại 
+                                            trở nên hấp dẫn hơn mà vẫn đảm bảo được hoạt động của các cảm biến.
+                                    </p>
+                                    <img src="Image/iphone-13-pro-max-2.jpg" alt="">
+                                    <p>Điểm thay đổi dễ dàng nhận biết trên iPhone 13 Pro Max chính là kích thước của cảm biến camera sau được làm to hơn và để tăng độ nhận diện cho sản phẩm mới thì Apple cũng đã bổ sung một tùy chọn màu sắc Sierra Blue (màu xanh dương nhạt hơn so với Pacific Blue của iPhone 12 Pro Max).</p>
+                                    <img src="Image/iphone-13-pro-max-9.jpg" alt="">
+                                    <p>Máy vẫn tiếp tục sử dụng khung viền thép cao cấp cho khả năng chống trầy xước và va đập một cách vượt trội, kết hợp với khả năng kháng bụi, nước chuẩn IP68.</p>
+                                    <img src="Image/iphone-13-pro-max-4.jpg" alt="">
+                                    <h4>Màn hình giải trí siêu mượt cùng tần số quét 120 Hz</h4>
+                                    <p>iPhone 13 Pro Max được trang bị màn hình kích thước 6.7 inch cùng độ phân giải 1284 x 2778 Pixels, sử dụng tấm nền OLED cùng công nghệ Super Retina XDR cho khả năng tiết kiệm năng lượng vượt trội nhưng vẫn đảm bảo hiển thị sắc nét sống động chân thực.</p>
+                                    <img src="Image/iphone-13-pro-max-5.jpg" alt="">
+                                    <p>iPhone Pro Max năm nay đã được nâng cấp lên tần số quét 120 Hz, mọi thao tác chuyển cảnh khi lướt ngón tay trên màn hình trở nên mượt mà hơn đồng thời hiệu ứng thị giác khi chúng ta chơi game hoặc xem video cũng cực kỳ mãn nhãn.</p>
+                                    <img src="Image/iphone-13-pro-max-6.jpg" alt="">
+                                    <p>Cùng công nghệ ProMotion thông minh có thể thay đổi tần số quét từ 10 đến 120 lần mỗi giây tùy thuộc vào ứng dụng, thao tác bạn đang sử dụng, nhằm tối ưu thời lượng sử dụng pin và trải nghiệm của bạn.</p>
+                                    <img src="Image/iphone-13-pro-max-1.jpg" alt="">
+                                    <p>Nếu bạn dùng iPhone 13 Pro Max để chơi game, tần số quét 120 Hz kết hợp hiệu suất đồ họa tuyệt vời của GPU sẽ khiến máy trở nên vô cùng hoàn hảo khi trải nghiệm.</p>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+                <div class="content-3">
+                    <h3>Cấu hình Điện thoại iPhone 13 Pro Max</h3>
+                    <table class="detailrow">
+                        <tr >
+                            <th>Màn hình</th>
+                            <th>Thông số</th>
+                        </tr>
+                        <tr>
+                            <tr><td>Công nghệ màn hình:</td><td>OLED</td></tr>
+                            <tr><td>Độ phân giải:</td><td>1284 x 2778 Pixels</td></tr>
+                            <tr><td>Màn hình rộng:</td><td>6.7" - Tần số quét 120Hz</td></tr>
+                            <tr><td>Độ sáng tối đa:</td><td>1200 nits</td></tr>
+                            <tr><td>Mặt kính:</td><td>Kính cường lực Ceramic Sheild</td></tr>                
+                        </tr>
+                    </table>
+                    <table class="detailrow" >
+                        <tr>
+                            <th >Camera sau</th>
+                            <th >Thông số</th>
+                        </tr>
+                        <tr>
+                            <tr><td>Độ phân giải:</td><td>3 camera 12MP</td></tr>
+                            <tr><td>Quay phim:</td><td>4K 2160p@ 60FPS</td></tr>
+                            <tr><td>Đèn Flash:</td><td>Kép </td></tr>
+                            <tr><td rowspan="6">Tính năng:</td></tr>
+                            <tr><td>Ban đêm (Night Mode)</td></tr>
+                            <tr><td>Chạm lấy nét</td></tr>
+                            <tr><td>Chống rung quang học (OIS)</td></tr>
+                            <tr><td>Góc siêu rộng</td></tr>
+                            <tr><td>Siêu cận (Macro)</td></tr>
+                        </tr>
+                        <tr>
+                            <th width="40%" >Camera trước</th>
+                            <th >Thông số</th>
+                        </tr>
+                        <tr>
+                            <tr><td>Độ phân giải:</td><td>12MP</td></tr>
+                            <tr><td rowspan="6">Tính năng:</td></tr> 
+                            <tr><td>HDR</td></tr>
+                            <tr><td>Nhận diện khuôn mặt</td></tr>
+                            <tr><td>Xoá phông</td></tr>
+                            <tr><td>Quay video 4K</td></tr>
+                            <tr><td>Face ID</td></tr>
+                        </tr>            
+                    </table>
+                    <table class="detailrow">
+                        <tr>
+                            <th width="40%" >Cấu hình</th>
+                            <th>Thông số</th>
+                        </tr>
+                        <tr>
+                            <tr><td>Hệ điều hành:</td><td>IOS 15</td></tr>
+                            <tr><td>Chip xử lý (CPU):</td><td>Apple A15 Bionic 6 nhân</td></tr>
+                            <tr><td>Tốc độ CPU:</td><td>3.22 GHz</td></tr>
+                            <tr><td>Chip đồ hoạ (GPU):</td><td>Apple GPU 5 nhân</td></tr>
+                            <tr><td>RAM:</td><td>6GB</td></tr>
+                            <tr><td rowspan="5">ROM:</td></tr>
+                            <tr><td>128GB</td></tr>
+                            <tr><td>256GB</td></tr>
+                            <tr><td>512GB</td></tr>
+                            <tr><td>1TB</td></tr>
+                        </tr>
+                    </table>
+                </div>
+            </div>  
+        </div>
+        <div class="footer">
+            <div class="bottom">
+                <ul class="row">
+                    <li class="col c-4 m-3 l-1">
+                        <h3>Hỗ trợ - Dịch vụ</h3> 
+                        <ul class="news1">
+                            <li><a href="">Mua hàng trả góp</a></li>
+                            <li><a href="">Hướng dẫn đặt hàng và thanh toán</a></li>
+                            <li><a href="">Chính sách bảo mật</a></li>
+                            <li><a href="">Chính sách đổi trả</a></li>
+                            <li><a href="">Điều khoản mua bán</a></li>
+                        </ul>
+                    </li>
+                    <li class="col c-4 m-3 l-1">
+                        <h3>Thông tin liên hệ</h3>
+                        <ul class="news1 news2">
+                            <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i><b> Hotline:</b> 1900 2906</a></li>
+                            <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i> <b> Facebook:</b> ftelecom.facebook.com</a></li>
+                            <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i><b> Youtube:</b>  ftelecom.youtube.com</a></li>
+                        </ul>
+                    </li>
+                    <li class="col c-4 m-3 l-1">
+                        <h3>Tổng đài hỗ trợ</h3>
+                        <ul class="news1">
+                            <li>Gọi mua:<a href="">1800.1060</a>(7:30 - 22:00)</li>
+                            <li>Kỹ thuật:<a href="">1800.1763</a>(7:30 - 22:00)</li>
+                            <li>Khiếu nại:<a href="">1800.1062</a>(8:00 - 21:30)</li>
+                            <li>Bảo hành:<a href="">1800.1064</a>(8:00 - 21:00)</li>
+                        </ul>
+                    </li>
+                    <li class="col c-4 m-3 l-1">
+                        <h3>Thanh toán miễn phí</h3>
+                        <img src="Image/logo-master.png" alt="">
+                        <img src="Image/logo-visa.png" alt=""> <br>
+                        <img src="Image/logo-atm.png" alt="">
+                        <img src="Image/logo-jcb.png" alt=""> <br>
+                        <img src="Image/logo-samsungpay.png" alt="">
+                        <img src="Image/logo-vnpay.png" alt="">
+                    </li>
+                    <li class="col c-4 m-7 l-1">
+                        <h3>Đơn vị vận chuyển</h3>
+                        <img src="Image/ems-vnpost-.jpg" alt="">
+                        <img src="Image/giao-hang-tiet-kiem.png" alt="">
+                        <img src="Image/giaohangnhanh.jpg" alt="">
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="add-bottom">
+            <p>Địa chỉ: Phường Ngọc Khánh, Quận Ba Đình, Thành Phố Hà Nội. <br> Tổng đài hỗ trợ: 19001221 - Enail: cskh@hotro.ftelecom.vn</p>
+            <p>Người thiết kế: Nguyễn Thế Dương   -   Điện thoại liên hệ: 038962****</p>
+            <p>@2022 - Bản quyền thuộc về Nguyễn Thế Dương</p>
+        </div>
+        <script src="detail.js"></script>
+        
+    </body>  
+</html>
